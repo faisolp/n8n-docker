@@ -1,0 +1,10 @@
+# Commands to create .gitkeep files for empty directories
+
+# Create .gitkeep files to track empty directories in git
+touch n8n/data/.gitkeep
+touch n8n/config/.gitkeep
+touch postgres/data/.gitkeep
+touch postgres/init/.gitkeep
+touch redis/data/.gitkeep
+touch compose/.gitkeep
+touch backups/.gitkeep

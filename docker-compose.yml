@@ -1,0 +1,16 @@
+version: "3.9"
+
+# Base configuration file
+# Usage: docker-compose -f docker-compose.yml -f compose/[service].yml up -d
+
+networks:
+  n8n-network:
+    driver: bridge
+
+volumes:
+  n8n_data:
+    driver: local
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local

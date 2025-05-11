@@ -1,0 +1,87 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Data directories
+n8n/data/
+postgres/data/
+redis/data/
+
+# Backup files
+backups/
+*.sql
+*.tar.gz
+*.zip
+*.bak
+
+# Logs
+*.log
+logs/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Docker override files (local development)
+docker-compose.override.yml
+docker-compose.local.yml
+
+# Custom configuration (sensitive)
+n8n/config/*
+!n8n/config/.gitkeep
+
+# Redis dump files
+*.rdb
+*.aof
+
+# PostgreSQL files
+postgres/data/*
+!postgres/data/.gitkeep
+postgres/init/*.sql
+!postgres/init/01-init.sql.example
+
+# Node modules (if any)
+node_modules/
+
+# Python virtual environment (if any)
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Certificates and keys
+*.pem
+*.key
+*.crt
+*.csr
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Test files
+test-results/
+*.test
+*.spec
+
+# Documentation build
+docs/_build/
+docs/.doctrees/
+site/
