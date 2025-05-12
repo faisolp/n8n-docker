@@ -1,5 +1,3 @@
-version: "3.9"
-
 # Base configuration file
 # Usage: docker-compose -f docker-compose.yml -f compose/[service].yml up -d
 

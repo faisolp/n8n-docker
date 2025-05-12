@@ -393,6 +393,9 @@ docker-compose -f docker-compose.yml \
 
 [Contributing guidelines]
 
+option 
+ngrok http 5678
+
 ## Support
 
 - Documentation: https://docs.n8n.io

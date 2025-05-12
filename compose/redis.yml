@@ -1,9 +1,9 @@
-version: "3.9"
+
 
 services:
   redis:
     image: redis:7-alpine
-    container_name: n8n-redis
+    container_name: redis
     restart: unless-stopped
     command: redis-server /usr/local/etc/redis/redis.conf
     networks:

@@ -67,7 +67,7 @@ done
 case $COMMAND in
     all)
         echo -e "${GREEN}Starting all services (PostgreSQL + Redis + n8n)...${NC}"
-        docker-compose -f $BASE_COMPOSE \
+        docker compose -f $BASE_COMPOSE \
             -f compose/postgres.yml \
             -f compose/redis.yml \
             -f compose/n8n.yml \
@@ -76,14 +76,14 @@ case $COMMAND in
         
     standalone)
         echo -e "${GREEN}Starting n8n standalone (SQLite)...${NC}"
-        docker-compose -f $BASE_COMPOSE \
+        docker compose -f $BASE_COMPOSE \
             -f compose/n8n-standalone.yml \
             up $DETACHED
         ;;
         
     postgres)
         echo -e "${GREEN}Starting n8n + PostgreSQL (no Redis)...${NC}"
-        docker-compose -f $BASE_COMPOSE \
+        docker compose -f $BASE_COMPOSE \
             -f compose/postgres.yml \
             -f compose/n8n-postgres-only.yml \
             up $DETACHED
@@ -92,12 +92,12 @@ case $COMMAND in
     down)
         echo -e "${YELLOW}Stopping all services...${NC}"
         # Stop all possible combinations
-        docker-compose -f $BASE_COMPOSE \
+        docker compose -f $BASE_COMPOSE \
             -f compose/postgres.yml \
             -f compose/redis.yml \
             -f compose/n8n.yml \
             down
-        docker-compose -f $BASE_COMPOSE \
+        docker compose -f $BASE_COMPOSE \
             -f compose/n8n-standalone.yml \
             down 2>/dev/null || true
         ;;
@@ -111,7 +111,7 @@ case $COMMAND in
         
     logs)
         shift
-        docker-compose -f $BASE_COMPOSE \
+        docker compose -f $BASE_COMPOSE \
             -f compose/postgres.yml \
             -f compose/redis.yml \
             -f compose/n8n.yml \
@@ -119,7 +119,7 @@ case $COMMAND in
         ;;
         
     ps)
-        docker-compose -f $BASE_COMPOSE \
+        docker compose -f $BASE_COMPOSE \
             -f compose/postgres.yml \
             -f compose/redis.yml \
             -f compose/n8n.yml \
@@ -138,8 +138,8 @@ case $COMMAND in
             redis/data 2>/dev/null || true
             
         # Backup PostgreSQL if running
-        if docker-compose ps postgres | grep -q Up; then
-            docker-compose exec -T postgres pg_dump -U ${POSTGRES_USER:-n8n} ${POSTGRES_DB:-n8n} \
+        if docker compose ps postgres | grep -q Up; then
+            docker compose exec -T postgres pg_dump -U ${POSTGRES_USER:-n8n} ${POSTGRES_DB:-n8n} \
                 > backups/postgres-$TIMESTAMP.sql
         fi
         
